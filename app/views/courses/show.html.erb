@@ -1,0 +1,27 @@
+      <div class="row">
+        <div class="col m12">
+          <div class="card red lighten-2">
+            <did class="card-image">
+                <!--  add embedded video from WISTIA  -->
+                <!-- add <%@course.video%> right after embed/iframe/ so each course will have the correspondendt video displaying -->
+                <!-- 'width:100%' -->
+                <!-- must upload video on Wistia  -->
+                <!-- copy video id (last digits) to video editing field on browser -->
+            </did>
+            <div class="card-content white-text">
+              <div class="row">
+                <div class="col m4 center">
+                  <%= image_tag "courses/#{@course.cover}" %>
+                </div>
+                <div class="col m8">
+                  <span class="card-title"> <%= @course.title %></span>
+                    <% (1..@course.star_number).each do %>
+                        <i class="material-icons">grade</i>
+                    <% end %>  
+                  <p><%= @course.description %> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

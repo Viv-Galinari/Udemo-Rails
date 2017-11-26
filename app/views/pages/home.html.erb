@@ -1,0 +1,21 @@
+<br/>
+
+<div class="row">
+	<% @courses.each do |course| %>
+		<div class="col m4">
+			<div class="card">
+				<div class="image">
+					<%= link_to course do %>
+					<%= image_tag "courses/#{course.cover}" %>
+					<% end %>
+				</div>
+				<div class="card-content">
+					<span class="card-title"> <%= course.title %></span>
+                    <% (1.course.star.number).each do %>
+                        <i class="material-icons white-text">grade</i>
+                    <% end %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>

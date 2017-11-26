@@ -1,0 +1,45 @@
+<%= form_with(model: course, local: true) do |form| %>
+  <% if course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :image, placeholder: "Image" %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :video, placeholder: "Video" %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :title, placeholder: "Title" %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :star, placeholder: "Star" %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :description, placeholder: "Description", length: "800", class: "materialize-textarea"  %>
+  </div>
+
+<!-- After migrating AddPublicToCourse to database (model), we need create a new div for user to update input, a check box.  -->
+<!-- It needs ID for check checkbox, or it wont work. Class filled in comes from materializecss -->
+  <div class="field">
+    <%= form.check_box :public, id: :public, class:"filled-in" %>
+    <label for="public">Public</label>
+  </div>
+
+  <button class="btn deep-orange lighten-3" type="submit"> Submit</button>
+
+  <%= link_to "Go to all courses", courses_path, class: "btn deep-orange lighten-3 white-text" %>  
+
+<% end %>
